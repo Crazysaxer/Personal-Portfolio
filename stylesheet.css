@@ -1,3 +1,43 @@
-h1 {
-    font-size: 60px;
+#name {
+    position: fixed;
+    font-size: 40px;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: white;
+}
+
+#navbar li {
+    padding: 20px;
+    margin: 0px;
+    border: solid;
+    display: inline-block;
+    padding-left: 4em;
+}
+
+#navbar ul:first-child {
+
+}
+
+#navbar li:hover {
+    /* style this later */
+}
+
+#navbar ul {
+    text-decoration: none;
+    margin: 0px;
+    text-align: right;
+}
+
+#navbar {
+    background-color: #e51212;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    color: white;
+}
+
+#welcome-section {
+    margin-top: 50px;
 }
