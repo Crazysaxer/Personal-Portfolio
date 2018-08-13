@@ -1,6 +1,8 @@
 #name {
     position: fixed;
     font-size: 40px;
+    padding-left: 3%;
+    padding-top: 2px;
 }
 
 #navbar a {
@@ -9,19 +11,14 @@
 }
 
 #navbar li {
-    padding: 20px;
     margin: 0px;
-    border: solid;
     display: inline-block;
-    padding-left: 4em;
+    padding: 15px 7% 15px 0px;
+    font-size: 25px;
 }
 
-#navbar ul:first-child {
-
-}
-
-#navbar li:hover {
-    /* style this later */
+#navbar a:hover {
+    color: black;
 }
 
 #navbar ul {
@@ -39,5 +36,66 @@
 }
 
 #welcome-section {
-    margin-top: 50px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    background-color: grey;
+    width: 100vw;
+    height: 100vh;
+}
+
+#project-boxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+    text-align: center;
+}
+
+#projects-header {
+    text-align: center;
+    padding-bottom: 2em;
+}
+
+figure img {
+    height: 200px;
+    width: height * 2;
+    border-color: black;
+    border-style: solid;
+}
+
+figcaption {
+    text-align: center;
+    border-color: black;
+    border-style: solid;
+    width: 400px;
+}
+
+
+
+.profile-link {
+    display: inline-block;
+    border-radius: 100%;
+    background-color: #e51212;
+    color: white;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    margin: 10em;
+}
+
+.profile-link:hover {
+    text-decoration: none;
+    background-color: white;
+    color: black;
+}
+
+#web {
+    height: 300px;
+    background: grey;
+}
+
+#web-title {
+    text-align: center;
 }
