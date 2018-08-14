@@ -39,7 +39,7 @@
     text-align: center;
     display: table-cell;
     vertical-align: middle;
-    background-color: grey;
+    background-color: #9e9e9e;
     width: 100vw;
     height: 100vh;
 }
@@ -59,7 +59,12 @@
 
 figure a {
     width: 80%;
+    color: black;
+}
 
+figure a:hover {
+    color: black;
+    font-weight: bold;
 }
 
 figure img {
@@ -78,8 +83,14 @@ figcaption {
     width: 100%;
 }
 
-.profile-link {
-    display: inline-block;
+#profile-link-container {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#profile-link-container a {
     border-radius: 100%;
     background-color: #e51212;
     color: white;
@@ -88,20 +99,23 @@ figcaption {
     text-align: center;
     display: table-cell;
     vertical-align: middle;
-    margin: 10em;
 }
 
-.profile-link:hover {
+#profile-link-container p {
+    margin: 20px 5%;
+}
+
+#profile-link-container a:hover {
     text-decoration: none;
-    background-color: white;
     color: black;
 }
 
 #web {
     height: 300px;
-    background: grey;
+    background: #9e9e9e;
 }
 
 #web-title {
     text-align: center;
+    padding: 20px 0;
 }
