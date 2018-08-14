@@ -44,11 +44,12 @@
     height: 100vh;
 }
 
-#project-boxes {
+#project-tile {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 50px;
     text-align: center;
+    padding: 0 5%;
 }
 
 #projects-header {
@@ -56,21 +57,26 @@
     padding-bottom: 2em;
 }
 
+figure a {
+    width: 80%;
+
+}
+
 figure img {
-    height: 200px;
-    width: height * 2;
-    border-color: black;
-    border-style: solid;
+    width: 100%;
+    height: auto;
+    border: 3px solid black;
+}
+
+#img1 {
+    padding-bottom: 0.5%;
 }
 
 figcaption {
-    text-align: center;
     border-color: black;
     border-style: solid;
-    width: 400px;
+    width: 100%;
 }
-
-
 
 .profile-link {
     display: inline-block;
