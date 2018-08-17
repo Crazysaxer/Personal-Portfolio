@@ -4,6 +4,39 @@
     <link rel="stylesheet" href="stylesheet.css">
     <!--Refresher for development. Every 3 seconds-->
     <meta http-equiv="refresh" content="50">
+
+    <script>
+        // do this function on your own but better
+        function editWarningText(regex, input, helpId, helpMessage) {
+            if(!regex.test(input)) {
+               if(helpId.innerHTML == "") {
+                   helpId.innerHTML = helpMessage;
+               }
+            } else {
+                helpId.innerHTML = "";
+            }
+        }
+
+        function isTheNameFieldEmpty(inputField, helpId) {
+            return editWarningText(/^[a-zA-Z]+$/, 
+            inputField.value, helpId, "Please enter a valid name");
+        }
+
+        function isTheEmailFieldEmpty(inputField, helpId) {
+            return editWarningText(/^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+([;.](([a-zA-Z0-9_\-\.]+)@{[a-zA-Z0-9_\-\.]+0\.([a-zA-Z]{2,5}){1,25})+)*$/, 
+            inputField.value, helpId, "Please enter a valid email");
+        }
+
+        function isThePhoneFieldEmpty(inputField, helpId) {
+            return editWarningText(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 
+            inputField.value, helpId, "Please enter a valid phone number");
+        }
+
+        function isTheMessageFieldEmpty(inputField, helpId) {
+            return editWarningText(/\S/, inputField.value, helpId, "Please enter a message");
+        }
+
+    </script>
 </head>
 
 <body>
@@ -64,24 +97,35 @@
             <form id="contact-form" method="post" action="contact-form-handler.php">
                 
                 <label id="name-label" class="contact-label" for="name-area">Name: </label>
-                <input id="name-area" class="info-box" name="name" type="text" placeholder="Your Name">
-            
+                <div class="input-wrapper">
+                    <input id="name-area" class="info-box" name="name" type="text" placeholder="Your Name" onblur="isTheNameFieldEmpty(this, document.getElementById('name-help'))">
+                    <span id="name-help" class="help-message"></span>
+                </div>
                 <label id="email-label" class="contact-label" for="email-area">Email: </label>
-                <input id="email-area" class="info-box" name="email" type="text" placeholder="Your Email">
-            
+                <div class="input-wrapper">
+                    <input id="email-area" class="info-box" name="email" type="text" placeholder="Your Email" onblur="isTheEmailFieldEmpty(this, document.getElementById('email-help'))">
+                    <span id="email-help" class="help-message"></span>
+                </div>
                 <label id="phone-label" class="contact-label" for="phone-area">Phone: </label>
-                <input id="phone-area" class="info-box" name="name" type="text" placeholder="###-###-####">
-            
+                <div class="input-wrapper">
+                    <input id="phone-area" class="info-box" name="phone" type="text" placeholder="###-###-####" onblur="isThePhoneFieldEmpty(this, document.getElementById('phone-help'))">
+                    <span id="phone-help" class="help-message"></span>
+                </div>
                 <label id="message-label" class="contact-label" for="message-area">Message: </label>
-                <input id="message-area" class="info-box" name="name" type="text-area" size="30" placeholder="Your Message">
-               
+                <div class="input-wrapper">
+                    <textarea id="message-area" class="info-box" name="message" rows="5" cols="30" placeholder="Your Message" onblur="isTheMessageFieldEmpty(this, document.getElementById('message-help'))"></textarea>
+                    <span id="message-help" class="help-message"></span>
+                </div>
                 <button id="submit-btn" name="submit" type="submit" class="btn">Submit</button>
             </form>
             
             <div id="contact-paragraph">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At sit esse vero enim accusamus architecto harum optio, tenetur omnis, ratione magnam debitis, dolor nostrum recusandae perspiciatis! Obcaecati enim nemo natus magni. Quos maxime corrupti quisquam fugiat consequatur expedita rem nam iste quod saepe eum et corporis eveniet nobis, rerum pariatur? Odio laudantium molestias voluptate sapiente assumenda voluptatem excepturi tempore nostrum.</p>
+                    <p>Do you want to get in touch with me? Whether it is to ask for my resume, request more information,
+                        talk about my experience as a Computer Science major at UMD, or even ask me what I have sacrificed to Testudo 
+                        to have a good GPA... feel free to contact me any time.
+                    </p>
                     <p>I promise to replay A.S.A.P.</p>
-                    <p>Note: no spam please :)</p>
+                    <p id="contact-note">Note: no spam please :)</p>
             </div>
         </div>
     </div>

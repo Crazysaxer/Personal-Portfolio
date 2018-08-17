@@ -135,8 +135,18 @@ figcaption {
     grid-row-gap: 1em;
 }
 
+#contact-paragraph {
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
 .info-box {
     border-radius: 10px;
+    width: 100%;
+}
+
+.help-message {
+    color: red;
 }
 
 #message-area {
