@@ -3,10 +3,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheet.css">
     <!--Refresher for development. Every 3 seconds-->
-    <meta http-equiv="refresh" content="50">
+    <meta http-equiv="refresh" content="3">
 
     <script>
-        // do this function on your own but better
         function editWarningText(regex, input, helpId, helpMessage) {
             if(!regex.test(input)) {
                if(helpId.innerHTML == "") {
@@ -50,8 +49,20 @@
     </nav>
 
     <div id="welcome-section">
-        <h1>Hi, I am Chris</h1>
-        <h4>An aspiring web developer</h4>
+        <div id="front-end-images">
+            <img id="html-image" class="program-images" src="images/Program symbols/html-image.png">
+            <img id="js-image" class="program-images" src="images/Program symbols/js-image3.png">
+            <img id="css-image" class="program-images" src="images/Program symbols/css-image.svg">
+        </div>
+        <div id="welcome-text">
+            <h1>Hi, I am Chris</h1>
+            <h4>An aspiring web developer</h4>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam dolorem expedita optio, ullam quidem dolorum ut culpa debitis quis quibusdam officia provident accusamus esse unde deleniti. Velit provident eum fugiat, aliquam sint inventore necessitatibus in explicabo natus mollitia similique nisi?</p>
+        </div>
+        <div id="back-end-images">
+            <img id="php-image" class="program-images" src="images/Program symbols/php-image.png">
+            <img id="sql-image" class="program-images" src="images/Program symbols/sql-image.png">
+        </div>
     </div>
 
     <div id="projects">
@@ -93,7 +104,6 @@
         <h1 id="contact-title">Contact Me Directly!</h1>
         
         <div id="contact-container">
-
             <form id="contact-form" method="post" action="contact-form-handler.php">
                 
                 <label id="name-label" class="contact-label" for="name-area">Name: </label>
