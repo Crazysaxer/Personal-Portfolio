@@ -19,21 +19,21 @@
 
         function isTheNameFieldEmpty(inputField, helpId) {
             return editWarningText(/^[a-zA-Z]+$/, 
-            inputField.value, helpId, "Please enter a valid name");
+            inputField.value, helpId, "*Please enter a valid name");
         }
 
         function isTheEmailFieldEmpty(inputField, helpId) {
             return editWarningText(/^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+([;.](([a-zA-Z0-9_\-\.]+)@{[a-zA-Z0-9_\-\.]+0\.([a-zA-Z]{2,5}){1,25})+)*$/, 
-            inputField.value, helpId, "Please enter a valid email");
+            inputField.value, helpId, "*Please enter a valid email");
         }
 
         function isThePhoneFieldEmpty(inputField, helpId) {
             return editWarningText(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 
-            inputField.value, helpId, "Please enter a valid phone number");
+            inputField.value, helpId, "*Please enter a valid phone number");
         }
 
         function isTheMessageFieldEmpty(inputField, helpId) {
-            return editWarningText(/\S/, inputField.value, helpId, "Please enter a message");
+            return editWarningText(/\S/, inputField.value, helpId, "*Please enter a message");
         }
 
     </script>
@@ -124,7 +124,7 @@
                         talk about my experience as a Computer Science major at UMD, or even ask me what I have sacrificed to Testudo 
                         to have a good GPA... feel free to contact me any time.
                     </p>
-                    <p>I promise to replay A.S.A.P.</p>
+                    <p>I promise to reply A.S.A.P.</p>
                     <p id="contact-note">Note: no spam please :)</p>
             </div>
         </div>
@@ -135,7 +135,8 @@
         <div id="profile-link-container">
             <p><a href="https://github.com/Crazysaxer" target="_blank">Github</a></p>
             <p><a href="https://www.linkedin.com/in/christopher-howard-15ab54145/" target="_blank">LinkedIn</a></p>
-            <p><a href="https://www.facebook.com/chris.howard.39566" trget="_blank">Facebook</a></p>
+            <p><a href="https://www.facebook.com/chris.howard.39566" target="_blank">Facebook</a></p>
+            <p><a href="https://www.freecodecamp.org/crazysaxer" target="_blank">Free Code Camp</a></p>
         </div>
     </div>
 
