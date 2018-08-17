@@ -66,10 +66,13 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 4fr;
     padding: 0 5%;
-    border: solid;
+    border-top: solid;
+    border-right: solid;
+    border-left: solid;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background-image: url(https://oneclassblog.com/wp-content/uploads/2017/09/University-of-Maryland-student-kautlyn-george-spotted.jpg);
+    color: black;
+    background-image: url(images/background-image1.png);
     height: 100%; 
     background-position: center;
     background-repeat: no-repeat;
@@ -100,6 +103,10 @@
     height: auto;
     justify-self: center;
     padding: 5%;
+}
+
+#contact {
+    background-color: #f9f9f9;
 }
 
 #project-tile {
@@ -281,6 +288,9 @@ figcaption {
 
     #welcome-text {
         display: initial;
+        border-bottom: solid;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 7px;
     }
 
 }
