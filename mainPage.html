@@ -58,14 +58,32 @@
 
     <div id="contact">
         <h1 id="contact-title">Contact Me Directly!</h1>
-        <p id="contact-message">Hi, Please contact me to hire me because I really want a jobbbb</p>
-        <form id="contact-form" method="post" action="contact-form-handler.php">
-            <input class="info-box" name="name" type="text" placeholder="Your Name">
-            <input class="info-box" name="email" type="text" placeholder="Your Email">
-            <input class="info-box" name="name" type="text" placeholder="###-###-####">
-            <input id="message-area" name="name" type="text-area" placeholder="Your Message">
-            <button name="submit" type="submit" class="btn">Submit</button>
-        </form>
+        
+        <div id="contact-container">
+
+            <form id="contact-form" method="post" action="contact-form-handler.php">
+                
+                <label id="name-label" class="contact-label" for="name-area">Name: </label>
+                <input id="name-area" class="info-box" name="name" type="text" placeholder="Your Name">
+            
+                <label id="email-label" class="contact-label" for="email-area">Email: </label>
+                <input id="email-area" class="info-box" name="email" type="text" placeholder="Your Email">
+            
+                <label id="phone-label" class="contact-label" for="phone-area">Phone: </label>
+                <input id="phone-area" class="info-box" name="name" type="text" placeholder="###-###-####">
+            
+                <label id="message-label" class="contact-label" for="message-area">Message: </label>
+                <input id="message-area" class="info-box" name="name" type="text-area" size="30" placeholder="Your Message">
+               
+                <button id="submit-btn" name="submit" type="submit" class="btn">Submit</button>
+            </form>
+            
+            <div id="contact-paragraph">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At sit esse vero enim accusamus architecto harum optio, tenetur omnis, ratione magnam debitis, dolor nostrum recusandae perspiciatis! Obcaecati enim nemo natus magni. Quos maxime corrupti quisquam fugiat consequatur expedita rem nam iste quod saepe eum et corporis eveniet nobis, rerum pariatur? Odio laudantium molestias voluptate sapiente assumenda voluptatem excepturi tempore nostrum.</p>
+                    <p>I promise to replay A.S.A.P.</p>
+                    <p>Note: no spam please :)</p>
+            </div>
+        </div>
     </div>
 
     <div id="web">
