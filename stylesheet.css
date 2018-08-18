@@ -272,6 +272,7 @@ figcaption {
     #front-end-images img {
         height: 100%;
         width: auto;
+        padding-bottom: 5px;
     }
 
 
