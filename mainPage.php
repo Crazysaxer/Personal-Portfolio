@@ -1,3 +1,34 @@
+<?php
+    /*
+    need to implement taking into consideration javascript form validation. submit button
+    should keep warning errors and say whether or not the email was sent or failed in new
+    div in contact section.
+     */
+    $msg = '';
+    $msgClass = '';
+    
+    // Check if submitted
+    if(filter_has_var(INPUT_POST, 'submit')) {
+        // get form data
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $message = $_POST['message'];
+
+        // form validation
+        if(!empty($name) && !empty($email) && !empty($phone) && !empty($message)) {
+            //passed
+        } else {
+            //failed
+            $msg = 'Please fill in all fields';
+            $msgClass = 'alert-danger';
+        }
+    }
+
+
+?>
+<!DOCTYPE html>
+<html>
 <head>
     <title>Personal Portfolio</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -104,7 +135,7 @@
         <h1 id="contact-title">Contact Me Directly!</h1>
         
         <div id="contact-container">
-            <form id="contact-form" method="post" action="contact-form-handler.php">
+            <form id="contact-form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                 
                 <label id="name-label" class="contact-label" for="name-area">Name: </label>
                 <div class="input-wrapper">
@@ -156,3 +187,5 @@
 
 
 </body>
+
+</html>
