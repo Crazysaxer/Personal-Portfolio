@@ -63,6 +63,7 @@
     <link rel="stylesheet" href="stylesheet.css">
     <!--Refresher for development. Every 3 seconds-->
     <!-- <meta http-equiv="refresh" content="50"> -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <script>
         function editWarningText(regex, input, helpId, helpMessage) {
@@ -122,10 +123,8 @@
             <img id="php-image" class="program-images" src="images/Program symbols/php-image.png">
             <img id="sql-image" class="program-images" src="images/Program symbols/sql-image.png">
         </div>
-    </div>
-
-    <div id="projects">
-        <h1 id="projects-header">Here are some of my projects</h1>
+    </div><div id="projects">
+        <h1 id="projects-header">My Projects</h1>
         <div id="project-tile">
             <figure>
                 <a href="https://github.com/Crazysaxer/Sample-Product-Landing-Page" target="_blank">

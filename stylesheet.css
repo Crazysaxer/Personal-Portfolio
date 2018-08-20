@@ -1,3 +1,7 @@
+body {
+    background-color: #f9f9f9;
+}
+
 #name {
     position: fixed;
     font-size: 40px;
@@ -109,6 +113,10 @@
     background-color: #f9f9f9;
 }
 
+#projects {
+    background-color: #f9f9f9;
+}
+
 #project-tile {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -119,7 +127,7 @@
 
 #projects-header {
     text-align: center;
-    padding-bottom: 2em;
+    padding-bottom: 1.7%;
 }
 
 figure a {
@@ -186,6 +194,7 @@ figcaption {
 .info-box {
     border-radius: 10px;
     width: 100%;
+    padding-left: 7px;
 }
 
 .help-message {
@@ -315,6 +324,10 @@ figcaption {
 
     #profile-link-container a {
         padding-top: 40px;
+    }
+
+    #welcome-section {
+        min-height: auto;
     }
 }
 
