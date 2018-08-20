@@ -25,7 +25,7 @@
         preg_match($phoneRegex, $phone) && preg_match($messageRegex, $message)) {
             //passed
             $toEmail = 'chrishoward1337@yahoo.com';
-            $subject = 'Contact Request From' . $name;
+            $subject = 'Contact Request From ' . $name;
             $body = '<h1>Contact Request</h1>
                     <h4>Name:</h4> <p> ' . $name .'</p>
                     <h4>Email:</h4> <p> ' . $email .'</p>
