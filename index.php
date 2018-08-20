@@ -1,12 +1,14 @@
 <?php
-    /*
-    need to implement taking into consideration javascript form validation. submit button
-    should keep warning errors and say whether or not the email was sent or failed in new
-    div in contact section.
-     */
+    
+    //defining variables for messages to be displayed
     $msg = '';
     $msgClass = '';
-    
+
+    $nameWarning = '';
+    $emailWarning = '';
+    $phoneWarning = '';
+    $messageWarning = '';
+
     // Check if submitted
     if(filter_has_var(INPUT_POST, 'submit')) {
         // get form data
@@ -15,6 +17,7 @@
         $phone = $_POST['phone'];
         $message = $_POST['message'];
 
+        // define regex to use on each field, should be same as javascript regex on frontend
         $nameRegex = '/\S/';
         $emailRegex = '/^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+([;.](([a-zA-Z0-9_\-\.]+)@{[a-zA-Z0-9_\-\.]+0\.([a-zA-Z]{2,5}){1,25})+)*$/';
         $phoneRegex = '/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/';
@@ -48,12 +51,26 @@
             }
         } else {
             //failed
+
+            // setting specific warning messages to remain on refresh
+            if(!preg_match($nameRegex, $name)) {
+                $nameWarning = "*Please enter a valid name";
+            }
+            if(!preg_match($emailRegex, $email)) {
+                $emailWarning = "*Please enter a valid email";
+            }
+            if(!preg_match($phoneRegex, $phone)) {
+                $phoneWarning = "*Please enter a valid phone number";
+            }
+            if(!preg_match($messageRegex, $message)) {
+                $messageWarning = "*Please enter a message";
+            }
+
+            // setting general warning message
             $msg = 'Please Fill In All Fields';
             $msgClass = 'alert-danger';
         }
     }
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -62,7 +79,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheet.css">
     <!--Refresher for development. Every 3 seconds-->
-    <!-- <meta http-equiv="refresh" content="50"> -->
+    <!-- <meta http-equiv="refresh" content="3"> -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <script>
@@ -172,28 +189,32 @@
                     <input id="name-area" class="info-box" name="name" type="text" 
                     value="<?php echo isset($_POST['name']) ? $name : ''; ?>" placeholder="Your Name" 
                     onblur="isTheNameFieldEmpty(this, document.getElementById('name-help'))">
-                    <span id="name-help" class="help-message"></span>
+                    <a id="name-help" name="name-help" class="help-message"><?php 
+                    echo $nameWarning ?></a>
                 </div>
                 <label id="email-label" class="contact-label" for="email-area">Email: </label>
                 <div class="input-wrapper">
                     <input id="email-area" class="info-box" name="email" type="text" 
                     value="<?php echo isset($_POST['email']) ? $email : ''; ?>" placeholder="Your Email" 
                     onblur="isTheEmailFieldEmpty(this, document.getElementById('email-help'))">
-                    <span id="email-help" class="help-message"></span>
+                    <a id="email-help" name="email-help" class="help-message"><?php
+                    echo $emailWarning ?></a>
                 </div>
                 <label id="phone-label" class="contact-label" for="phone-area">Phone: </label>
                 <div class="input-wrapper">
                     <input id="phone-area" class="info-box" name="phone" type="text" 
                     value="<?php echo isset($_POST['phone']) ? $phone : ''; ?>" placeholder="###-###-####" 
                     onblur="isThePhoneFieldEmpty(this, document.getElementById('phone-help'))">
-                    <span id="phone-help" class="help-message"></span>
+                    <a id="phone-help" name="phone-help" class="help-message"><?php
+                    echo $phoneWarning ?></a>
                 </div>
                 <label id="message-label" class="contact-label" for="message-area">Message: </label>
                 <div class="input-wrapper">
                     <textarea id="message-area" class="info-box" name="message" rows="5" cols="30" placeholder="Your Message" 
                     onblur="isTheMessageFieldEmpty(this, document.getElementById('message-help'))"><?php 
                     echo isset($_POST['message']) ? $message : ''; ?></textarea>
-                    <span id="message-help" class="help-message"></span>
+                    <a id="message-help" name="message-help" class="help-message"><?php
+                    echo $messageWarning ?></a>
                 </div>
                 <button id="submit-btn" name="submit" type="submit" class="btn">Submit</button>
             </form>

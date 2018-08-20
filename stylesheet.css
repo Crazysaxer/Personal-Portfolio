@@ -201,6 +201,11 @@ figcaption {
     color: red;
 }
 
+.help-message:hover {
+    text-decoration: none;
+    color: red;
+}
+
 #message-area {
     resize: both;
     overflow: auto;
