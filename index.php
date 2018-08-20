@@ -15,12 +15,40 @@
         $phone = $_POST['phone'];
         $message = $_POST['message'];
 
+        $nameRegex = '/\S/';
+        $emailRegex = '/^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+([;.](([a-zA-Z0-9_\-\.]+)@{[a-zA-Z0-9_\-\.]+0\.([a-zA-Z]{2,5}){1,25})+)*$/';
+        $phoneRegex = '/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/';
+        $messageRegex = '/\S/';
+
         // form validation
-        if(!empty($name) && !empty($email) && !empty($phone) && !empty($message)) {
+        if(preg_match($nameRegex, $name) && preg_match($emailRegex, $email) && 
+        preg_match($phoneRegex, $phone) && preg_match($messageRegex, $message)) {
             //passed
+            $toEmail = 'chrishoward1337@yahoo.com';
+            $subject = 'Contact Request From' . $name;
+            $body = '<h1>Contact Request</h1>
+                    <h4>Name:</h4> <p> ' . $name .'</p>
+                    <h4>Email:</h4> <p> ' . $email .'</p>
+                    <h4>Phone:</h4> <p> ' . $phone .'</p>
+                    <h4>Message:</h4> <p> ' . $message .'</p>';
+
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-Type:text/html;charset=UTF-8" . 
+                        "\r\n";
+            
+
+            $headers .= "From: " . $name . "<" . $email . ">" . "\r\n";
+
+            if(mail($toEmail, $subject, $body, $headers)) {
+                $msg = 'Message Sent';
+                $msgClass = 'alert-success';
+            } else {
+                $msg = 'Error: Your Email Was Not Sent';
+                $msgClass = 'alert-danger';
+            }
         } else {
             //failed
-            $msg = 'Please fill in all fields';
+            $msg = 'Please Fill In All Fields';
             $msgClass = 'alert-danger';
         }
     }
@@ -34,7 +62,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheet.css">
     <!--Refresher for development. Every 3 seconds-->
-    <meta http-equiv="refresh" content="50">
+    <!-- <meta http-equiv="refresh" content="50"> -->
 
     <script>
         function editWarningText(regex, input, helpId, helpMessage) {
@@ -48,7 +76,7 @@
         }
 
         function isTheNameFieldEmpty(inputField, helpId) {
-            return editWarningText(/^[a-zA-Z]+$/, 
+            return editWarningText(/\S/, 
             inputField.value, helpId, "*Please enter a valid name");
         }
 
@@ -133,28 +161,39 @@
 
     <div id="contact">
         <h1 id="contact-title">Contact Me Directly!</h1>
-        
+        <?php if(1 == 1): ?>
+        <div id="contact-alert" class="alert <?php echo $msgClass; ?>"><?php echo $msg; ?></div>
+
+        <?php endif ?>
         <div id="contact-container">
             <form id="contact-form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                 
                 <label id="name-label" class="contact-label" for="name-area">Name: </label>
                 <div class="input-wrapper">
-                    <input id="name-area" class="info-box" name="name" type="text" placeholder="Your Name" onblur="isTheNameFieldEmpty(this, document.getElementById('name-help'))">
+                    <input id="name-area" class="info-box" name="name" type="text" 
+                    value="<?php echo isset($_POST['name']) ? $name : ''; ?>" placeholder="Your Name" 
+                    onblur="isTheNameFieldEmpty(this, document.getElementById('name-help'))">
                     <span id="name-help" class="help-message"></span>
                 </div>
                 <label id="email-label" class="contact-label" for="email-area">Email: </label>
                 <div class="input-wrapper">
-                    <input id="email-area" class="info-box" name="email" type="text" placeholder="Your Email" onblur="isTheEmailFieldEmpty(this, document.getElementById('email-help'))">
+                    <input id="email-area" class="info-box" name="email" type="text" 
+                    value="<?php echo isset($_POST['email']) ? $email : ''; ?>" placeholder="Your Email" 
+                    onblur="isTheEmailFieldEmpty(this, document.getElementById('email-help'))">
                     <span id="email-help" class="help-message"></span>
                 </div>
                 <label id="phone-label" class="contact-label" for="phone-area">Phone: </label>
                 <div class="input-wrapper">
-                    <input id="phone-area" class="info-box" name="phone" type="text" placeholder="###-###-####" onblur="isThePhoneFieldEmpty(this, document.getElementById('phone-help'))">
+                    <input id="phone-area" class="info-box" name="phone" type="text" 
+                    value="<?php echo isset($_POST['phone']) ? $phone : ''; ?>" placeholder="###-###-####" 
+                    onblur="isThePhoneFieldEmpty(this, document.getElementById('phone-help'))">
                     <span id="phone-help" class="help-message"></span>
                 </div>
                 <label id="message-label" class="contact-label" for="message-area">Message: </label>
                 <div class="input-wrapper">
-                    <textarea id="message-area" class="info-box" name="message" rows="5" cols="30" placeholder="Your Message" onblur="isTheMessageFieldEmpty(this, document.getElementById('message-help'))"></textarea>
+                    <textarea id="message-area" class="info-box" name="message" rows="5" cols="30" placeholder="Your Message" 
+                    onblur="isTheMessageFieldEmpty(this, document.getElementById('message-help'))"><?php 
+                    echo isset($_POST['message']) ? $message : ''; ?></textarea>
                     <span id="message-help" class="help-message"></span>
                 </div>
                 <button id="submit-btn" name="submit" type="submit" class="btn">Submit</button>
