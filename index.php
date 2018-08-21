@@ -177,17 +177,19 @@
 
     <div id="contact">
         <h1 id="contact-title">Contact Me Directly!</h1>
-        <?php if(1 == 1): ?>
         <div id="contact-alert" class="alert <?php echo $msgClass; ?>"><?php echo $msg; ?></div>
-
-        <?php endif ?>
+        
         <div id="contact-container">
             <form id="contact-form" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                 
                 <label id="name-label" class="contact-label" for="name-area">Name: </label>
                 <div class="input-wrapper">
                     <input id="name-area" class="info-box" name="name" type="text" 
-                    value="<?php echo isset($_POST['name']) ? $name : ''; ?>" placeholder="Your Name" 
+                    value="<?php 
+                    if($msgClass == 'alert-danger') {
+                        echo isset($_POST['name']) ? $name : ''; 
+                    }
+                    ?>" placeholder="Your Name" 
                     onblur="isTheNameFieldEmpty(this, document.getElementById('name-help'))">
                     <a id="name-help" name="name-help" class="help-message"><?php 
                     echo $nameWarning ?></a>
@@ -195,7 +197,11 @@
                 <label id="email-label" class="contact-label" for="email-area">Email: </label>
                 <div class="input-wrapper">
                     <input id="email-area" class="info-box" name="email" type="text" 
-                    value="<?php echo isset($_POST['email']) ? $email : ''; ?>" placeholder="Your Email" 
+                    value="<?php 
+                    if($msgClass == 'alert-danger') {
+                        echo isset($_POST['email']) ? $email : ''; 
+                    } 
+                    ?>" placeholder="Your Email" 
                     onblur="isTheEmailFieldEmpty(this, document.getElementById('email-help'))">
                     <a id="email-help" name="email-help" class="help-message"><?php
                     echo $emailWarning ?></a>
@@ -203,7 +209,11 @@
                 <label id="phone-label" class="contact-label" for="phone-area">Phone: </label>
                 <div class="input-wrapper">
                     <input id="phone-area" class="info-box" name="phone" type="text" 
-                    value="<?php echo isset($_POST['phone']) ? $phone : ''; ?>" placeholder="###-###-####" 
+                    value="<?php 
+                    if($msgClass == 'alert-danger') {
+                        echo isset($_POST['phone']) ? $phone : ''; 
+                    } 
+                    ?>" placeholder="###-###-####" 
                     onblur="isThePhoneFieldEmpty(this, document.getElementById('phone-help'))">
                     <a id="phone-help" name="phone-help" class="help-message"><?php
                     echo $phoneWarning ?></a>
@@ -211,8 +221,10 @@
                 <label id="message-label" class="contact-label" for="message-area">Message: </label>
                 <div class="input-wrapper">
                     <textarea id="message-area" class="info-box" name="message" rows="5" cols="30" placeholder="Your Message" 
-                    onblur="isTheMessageFieldEmpty(this, document.getElementById('message-help'))"><?php 
-                    echo isset($_POST['message']) ? $message : ''; ?></textarea>
+                    onblur="isTheMessageFieldEmpty(this, document.getElementById('message-help'))"><?php
+                    if($msgClass == 'alert-danger') { 
+                    echo isset($_POST['message']) ? $message : ''; 
+                    } ?></textarea>
                     <a id="message-help" name="message-help" class="help-message"><?php
                     echo $messageWarning ?></a>
                 </div>
