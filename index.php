@@ -83,6 +83,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <script>
+
+        // editWarningText decides whether or not to show the warning messages
+        // based on matching balues to regular expressions
         function editWarningText(regex, input, helpId, helpMessage) {
             if(!regex.test(input)) {
                if(helpId.innerHTML == "") {
@@ -93,21 +96,25 @@
             }
         }
 
+        // isTheNameFieldEmpty calls editWarningText for the name field
         function isTheNameFieldEmpty(inputField, helpId) {
             return editWarningText(/\S/, 
             inputField.value, helpId, "*Please enter a valid name");
         }
-
+        
+        // isTheNameFieldEmpty calls editWarningText for the email field
         function isTheEmailFieldEmpty(inputField, helpId) {
             return editWarningText(/^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+([;.](([a-zA-Z0-9_\-\.]+)@{[a-zA-Z0-9_\-\.]+0\.([a-zA-Z]{2,5}){1,25})+)*$/, 
             inputField.value, helpId, "*Please enter a valid email");
         }
 
+        // isTheNameFieldEmpty calls editWarningText for the phone field
         function isThePhoneFieldEmpty(inputField, helpId) {
             return editWarningText(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/, 
             inputField.value, helpId, "*Please enter a valid phone number");
         }
 
+        // isTheNameFieldEmpty calls editWarningText for the message field
         function isTheMessageFieldEmpty(inputField, helpId) {
             return editWarningText(/\S/, inputField.value, helpId, "*Please enter a message");
         }
