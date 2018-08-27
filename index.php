@@ -140,8 +140,10 @@
         </div>
         <div id="welcome-text">
             <h1>Hi, I am Chris</h1>
-            <h4>An aspiring web developer</h4>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam dolorem expedita optio, ullam quidem dolorum ut culpa debitis quis quibusdam officia provident accusamus esse unde deleniti. Velit provident eum fugiat, aliquam sint inventore necessitatibus in explicabo natus mollitia similique nisi?</p>
+            <h4>An aspiring Web Developer and Software Engineer</h4>
+            <p>I am currently a Junior majoring in Computer Science at the Univseristy of Maryland College Park, 
+            expecting to graduate in 2020. I have always enjoyed the challenge and excitement of overcoming difficult problems,
+            which is why I love programming. Experience in Java, C, HTML, CSS, JavaScript, PHP, and MySQL</p>
         </div>
         <div id="back-end-images">
             <img id="php-image" class="program-images" src="images/Program symbols/php-image.png">
@@ -173,7 +175,7 @@
     
             <figure>
                 <a href="https://github.com/Crazysaxer/Satirical-Tribute-Page-" target="_blank">
-                <img id="img4" src='images/tribute-page.png' alt='tribute-page' />
+                <img id="img4" src='images/tribute-page1.png' alt='tribute-page' />
                 <figcaption class="project-title">Satirical Tribute Page</figcaption>
                 </a>
             </figure>
