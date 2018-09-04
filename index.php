@@ -254,7 +254,7 @@
     <div id="web">
         <h1 id="web-title">Around the web</h1>
         <div id="profile-link-container">
-            <p><a href="https://github.com/Crazysaxer" target="_blank">Github</a></p>
+            <p><a href="https://github.com/choward4" target="_blank">Github</a></p>
             <p><a href="https://www.linkedin.com/in/christopher-howard-15ab54145/" target="_blank">LinkedIn</a></p>
             <p><a href="https://www.facebook.com/chris.howard.39566" target="_blank">Facebook</a></p>
             <p><a href="https://www.freecodecamp.org/crazysaxer" target="_blank">Free Code Camp</a></p>
