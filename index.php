@@ -150,31 +150,31 @@
             <img id="sql-image" class="program-images" src="images/Program symbols/sql-image.png">
         </div>
     </div><div id="projects">
-        <h1 id="projects-header">My Projects</h1>
+        <h1 id="projects-header">My Front End Projects</h1>
         <div id="project-tile">
             <figure>
-                <a href="https://github.com/Crazysaxer/Sample-Product-Landing-Page" target="_blank">
+                <a href="https://choward4.github.io/Sample-Product-Landing-Page/" target="_blank">
                 <img id="img1" src='images/product-landing-page.png' alt='product-landing-page' />
                 <figcaption class="project-title">Sample Product Landing Page</figcaption>
                 </a>
             </figure>
 
             <figure>
-                <a href="https://github.com/Crazysaxer/Satirical-UMD-Survey" target="_blank">
+                <a href="https://choward4.github.io/Satirical-UMD-Survey/" target="_blank">
                 <img id="img2" src='images/survey-page.png' alt='survey-page' />
                 <figcaption class="project-title">Satirical UMD Survey Page</figcaption>
                 </a>
             </figure>
             
             <figure>
-                <a href="#" target="_blank">
+                <a href="https://choward4.github.io/Node.js-Technical-Documentation-Page/" target="_blank">
                 <img id="img3" src='images/technical-documentation-page.png' alt='technical-documentation-page' />
                 <figcaption class="project-title">Node.js Techincal Documentation Page</figcaption>
                 </a>
             </figure>
     
             <figure>
-                <a href="https://github.com/Crazysaxer/Satirical-Tribute-Page-" target="_blank">
+                <a href="https://choward4.github.io/Satirical-Tribute-Page-/" target="_blank">
                 <img id="img4" src='images/tribute-page1.png' alt='tribute-page' />
                 <figcaption class="project-title">Satirical Tribute Page</figcaption>
                 </a>
